@@ -56,6 +56,9 @@ CHANNEL_C = pd.read_csv('/work/data/train_base_data.csv')['CHANNEL_C']
 # clf = RandomForestClassifier(class_weight='balanced').fit(COL, CHANNEL_A)
 clf = BaggingClassifier().fit(COL, CHANNEL_A)
 # dump(clf, 'model_A.joblib')
+# dump(rf_classifier, 'random_forest_model.joblib')
+# loaded_model = load('random_forest_model.joblib')
+# A = loaded_model.predict_proba(COL_test)
 A = clf.predict_proba(COL_test)
 df = pd.read_csv('/work/output.csv')
 z = 0
